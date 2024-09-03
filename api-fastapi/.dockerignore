@@ -1,0 +1,5 @@
+# Exclude the directory "venv" and its contents
+venv/
+
+#Exclude __pycache__ and its contents
+**/__pycache__/
