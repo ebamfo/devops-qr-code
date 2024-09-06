@@ -9,9 +9,11 @@ blob_url = ""
 
 def qrGenerator():
     try:
+        print(request_url)
         r=requests.get(url=request_url)
         data = r.json()
         blob_url = data["qrurl"]
+        print(blob_url)
         return blob_url
     except:
         print("GET request unsuccessful")
@@ -31,6 +33,7 @@ def qrComparison(url):
         img=cv2.imread(filename)
         detector=cv2.QRCodeDetector()
         val,b,c=detector.detectAndDecode(img)
+        print(val)
         if val == test_url:
             return "Test URL and QR Code generated are the same, Yippey!!"
         else:
