@@ -33,8 +33,10 @@ def qrComparison(url):
         val,b,c=detector.detectAndDecode(img)
         if val == test_url:
             return "Test URL and QR Code generated are the same, Yippey!!"
+        else:
+            return "Test URL and QR Code generated are not the same"
     except:
-        print("Test URL and QR Code generated are not the same")
+        print("There was an error with image comparison, kindly check")
 
 if __name__ == "__main__":
     qrComparison(url=request_url)
