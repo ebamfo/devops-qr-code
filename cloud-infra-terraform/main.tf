@@ -8,9 +8,7 @@ resource "azurerm_resource_group" "rg" {
   }
 }
 
-
 data "azurerm_client_config" "current" {}
-
 
 resource "azurerm_storage_account" "storage-account01" {
   name                     = "qrcode80335"
@@ -24,7 +22,6 @@ resource "azurerm_storage_account" "storage-account01" {
     project     = "qr-code"
   }
 }
-
 
 resource "azurerm_storage_management_policy" "lifecycle-policy-01" {
   storage_account_id = azurerm_storage_account.storage-account01.id
@@ -45,14 +42,12 @@ resource "azurerm_storage_management_policy" "lifecycle-policy-01" {
   depends_on = [azurerm_storage_account.storage-account01]
 }
 
-
 resource "azurerm_kubernetes_cluster" "aks-cluster01" {
   name                = "aks-cluster01"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   dns_prefix          = "akscluster01"
   
-
   default_node_pool {
     name       = "default"
     node_count = 1
@@ -73,7 +68,6 @@ resource "azurerm_kubernetes_cluster" "aks-cluster01" {
   }
 
 }
-
 
 resource "azurerm_key_vault" "akv-01" {
   name                        = "akv-01-qr80335"

@@ -1,0 +1,39 @@
+name: Build Test and Deploy WebUI image
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - front-end-vuejs/**
+
+jobs:
+  build-and-publish-tested-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push webui image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./front-end-vuejs
+          push: true
+          tags: |
+            eben98/qrcode-webui:latest
+            eben98/qrcode-webui:${{ github.sha }}
+
+      - name: Setup kubeconfig
+        run: |
+          mkdir -p ${HOME}/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ${HOME}/.kube/config
+
+      - name: Use Kubernetes context
+        run: kubectl config use-context aks-cluster01
+
+      - name: Deploy to Azure Kubernetes Service
+        run: kubectl set image deployment/webui-deployment qrcode-webui=eben98/qrcode-webui:latest

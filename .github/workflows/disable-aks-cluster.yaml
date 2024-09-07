@@ -1,5 +1,5 @@
 
-name: Deactivate AKS CLuster at 6PM UTC
+name: Deactivate AKS Cluster at 6PM UTC
 on:
     # Triggers the workflow everyday at 8AM
     schedule:

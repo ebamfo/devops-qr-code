@@ -1,7 +1,10 @@
-name: Build and Publish web-api image to Docker Hub
+name: Build, test and Deploy API image
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - api-fastapi/**
 
 jobs:
   build-api-image-for-testing:
@@ -56,5 +59,5 @@ jobs:
       - name: Use Kubernetes context
         run: kubectl config use-context aks-cluster01
 
-      - name: Deploy to Kubernetes
-        run: kubectl apply -f k8s/
+      - name: Deploy to Azure Kubernetes Service
+        run: kubectl set image deployment/api-deployment qrcode-api=eben98/qrcode-api:latest
