@@ -3,7 +3,6 @@ name: Activate AKS Cluster at 8AM UTC
 on:
     # Triggers the workflow everyday at 7:50AM
     schedule:
-    
       - cron: "50 7 * * *"
     workflow_dispatch:
 
