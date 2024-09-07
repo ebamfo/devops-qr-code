@@ -1,8 +1,8 @@
 # QR Code Generator
 
-This project is a QR code generator application. It takes input text from user and returns QR Code image which is downloadable. 
-The application is available from 8:00 AM UTC to 6:00 PM UTC everyday
-You can access project at qrcode.ebamforesume.cloud
+- This project is a QR code generator application. It takes input text from user and returns QR Code image which is downloadable. 
+- The application is available from 8:00 AM UTC to 6:00 PM UTC everyday.
+- You can access project [here](qrcode.ebamforesume.cloud)
 
 ## Key Features
 - **Text-to-QR Code Conversion:** Converts user-provided text into QR codes.
