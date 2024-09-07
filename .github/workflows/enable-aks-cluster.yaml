@@ -1,0 +1,24 @@
+
+name: Activate AKS CLuster at 8AM UTC
+on:
+    # Triggers the workflow everyday at 8AM
+    schedule:
+      - cron: "50 7 * * *"
+    workflow_dispatch:
+
+jobs:
+    cron:
+      runs-on: ubuntu-latest
+      
+      steps:
+        - name: Azure Login
+          uses: azure/login@v2
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+        - name: Azure CLI script
+          uses: azure/cli@v2
+          with:
+            azcliversion: latest
+            inlineScript: |
+              az aks start --resource-group rg-project-qr-code --name aks-cluster01
