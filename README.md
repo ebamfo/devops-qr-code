@@ -10,17 +10,18 @@ This project is an application that generates QR codes from input text. It lever
 
 ## Technologies Used
 
-**1. Vue.js-**The front-end is developed using VueJS.
+**1. Vue.js-** The front-end is developed using VueJS.
 
-**2. FastAPI-**The API is developed using FastAPI. It receives a GET function with 2 parameters ie **url**(URL to be converted) and **dateTime**(Current time is hhmmss to name image). It stores the QR code in Azure Blob Storage and returns a url to access it.
+**2. FastAPI-** The API is developed using FastAPI. It receives a GET function with 2 parameters ie **url**(URL to be converted) and **dateTime**(Current time is hhmmss to name image). It stores the QR code in Azure Blob Storage and returns a url to access it.
 
-**3. Kubernetes-**The web-ui and API are deployed as pods in a deployment set in Azure Kubernetes Services. Loadbalalancer services are created for the web-ui and API. SecretProviderClass is used to pass connection string of Azure Blob Storage into API pod during deployment
+**3. Kubernetes-** The web-ui and API are deployed as pods in a deployment set in Azure Kubernetes Services. Loadbalalancer services are created for the web-ui and API. SecretProviderClass is used to pass connection string of Azure Blob Storage into API pod during deployment
 
-**4. Terraform-**Terraform is used as the IaC tool to deploy and manage Microsoft Azure services. 
+**4. Terraform-** Terraform is used as the IaC tool to deploy and manage Microsoft Azure services. 
 
-**5. Microsoft Azure-**Microsoft Azure is used for the cloud deployments. Microsoft Azure tools used include Azure Kubernetes Service, Azure Key Vault and Azure Blob Storage
+**5. Microsoft Azure-** Microsoft Azure is used for the cloud deployments. Microsoft Azure tools used include Azure Kubernetes Service, Azure Key Vault and Azure Blob Storage
 
-**5. GitHub Actions-**5 CI/CD Pipelines which carry out the following 4 main tasks;
+**5. GitHub Actions-**
+Five CI/CD Pipelines which carry out the following 4 main tasks;
 - Test and Deploy changes made to API
 - Deploy changes made to front end
 - Deploy changes made to kubernetes manifest files
