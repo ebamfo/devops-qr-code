@@ -8,7 +8,7 @@ This project is an application that generates QR codes from input text. It lever
 - **Scalable Deployment:** The application is containerized and deployed in a Kubernetes cluster, ensuring scalability and reliability.
 - **Automated Testing and Deployment:** CI/CD pipelines test and deploy the application, guaranteeing high-quality code in production.
 
-## Technologies Used
+## Technology Stack
 
 **1. Vue.js** 
 
@@ -26,7 +26,7 @@ The web-ui and API are deployed as pods in a deployment set in Azure Kubernetes 
 
 Terraform is used as the IaC tool to deploy and manage Microsoft Azure services. 
 
-**5. Microsoft Azure-** 
+**5. Microsoft Azure** 
 
 Microsoft Azure is used for the cloud deployments. Microsoft Azure tools used include Azure Kubernetes Service, Azure Key Vault and Azure Blob Storage
 
