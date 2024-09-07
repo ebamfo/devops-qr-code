@@ -1,6 +1,6 @@
 # QR Code Generator
 
-This project is an application that generates QR codes from input text. It leverages technologies, including Vue.js for the frontend and FastAPI for the backend. This is deployed within Azure Kubernetes Service working in conjunction with other Azure servers and Terraform to deploy Azure infrastructure. The project also incorporates CI/CD pipelines using GitHub Actions to ensure the robustness of the API before deployment and also streamline kubernetes infrastructure changes.
+This project is a QR code generator application using Vue.js for the frontend and FastAPI for the backend. It is deployed on Azure Kubernetes Service with infrastructure managed by Terraform and supported by other Azure services. CI/CD pipelines, implemented via GitHub Actions, ensure API robustness and streamline Kubernetes infrastructure updates.
 
 ## Key Features
 - **Text-to-QR Code Conversion:** Converts user-provided text into QR codes.

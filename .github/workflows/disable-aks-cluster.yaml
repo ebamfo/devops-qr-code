@@ -4,8 +4,6 @@ on:
     # Triggers the workflow everyday at 8AM
     schedule:
       - cron: "0 18 * * *"
-    workflow_dispatch:
-
 jobs:
     cron:
       runs-on: ubuntu-latest
