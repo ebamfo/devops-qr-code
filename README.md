@@ -6,7 +6,6 @@
 
 ## Key Features
 - **Text-to-QR Code Conversion:** Converts user-provided text into QR codes.
-- **Real-time Feedback:** The QR code is generated and displayed instantly on the frontend.
 - **Scalable Deployment:** The application is containerized and deployed in a Kubernetes cluster, ensuring scalability and reliability.
 - **Automated Testing and Deployment:** CI/CD pipelines test and deploy the application, guaranteeing high-quality code in production.
 
