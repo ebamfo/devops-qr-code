@@ -47,17 +47,20 @@ resource "azurerm_kubernetes_cluster" "aks-cluster01" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   dns_prefix          = "akscluster01"
-  
+
   default_node_pool {
     name       = "default"
     node_count = 1
     vm_size    = "Standard_B2s"
   }
-
   identity {
     type = "SystemAssigned"
   }
 
+  network_profile {
+    network_plugin    = "kubenet"
+    load_balancer_sku = "basic"
+  }
   tags = {
     environment = "production"
     project     = "qr-code"

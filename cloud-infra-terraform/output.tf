@@ -1,7 +1,7 @@
 resource "local_file" "kubeconfig" {
-  depends_on   = [azurerm_kubernetes_cluster.aks-cluster01]
-  filename     = "config"
-  content      = azurerm_kubernetes_cluster.aks-cluster01.kube_config_raw
+  depends_on = [azurerm_kubernetes_cluster.aks-cluster01]
+  filename   = "config"
+  content    = azurerm_kubernetes_cluster.aks-cluster01.kube_config_raw
 }
 
 output "client_id" {

@@ -2,7 +2,7 @@
 
 - This project is a QR code generator application. It takes input text from user and returns QR Code image which is downloadable. 
 - The application is available from 8:00 AM UTC to 6:00 PM UTC everyday.
-- You can access project [here](http://qrcode.ebamforesume.cloud)
+- You can access qrcode-generator [here](http://qrcode.ebamforesume.cloud)
 
 ## Key Features
 - **Text-to-QR Code Conversion:** Converts user-provided text into QR codes.
@@ -17,7 +17,7 @@ The front-end is developed using VueJS.
 
 **2. FastAPI** 
 
-The API is developed using FastAPI. It receives a GET function with 2 parameters ie **url**(URL to be converted) and **dateTime**(Current time is hhmmss to name image). It stores the QR code in Azure Blob Storage and returns a url to access it.
+The API is developed using FastAPI. It receives a GET function with 2 parameters ie **url**(URL to be converted) and **dateTime**(Current time is hhmmss to name image generated). It stores the QR code in Azure Blob Storage and returns a url to access it.
 
 **3. Kubernetes** 
 
