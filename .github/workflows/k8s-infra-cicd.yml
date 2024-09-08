@@ -15,5 +15,5 @@ jobs:
           - name: Use context
             run: kubectl config use-context aks-cluster01
           - name: Deploy to K8s
-            working-directory: ./k8s/
+            working-directory: k8s
             run: kubectl apply -f .
