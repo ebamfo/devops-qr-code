@@ -13,10 +13,9 @@ jobs:
               mkdir ${HOME}/.kube
               echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
               cat ${HOME}/.kube/config
-              
+
           - name: Use context
             run: kubectl config use-context aks-cluster01
 
           - name: Deploy to K8s
-            run: kubectl apply -f .
-            working-directory: ./k8s/
+            run: kubectl apply -f /home/runner/work/devops-qr-code/qrcode-k8s.yaml
