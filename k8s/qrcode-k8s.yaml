@@ -1,3 +1,61 @@
+#SecretClass
+
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: azure-secret-sync
+spec:
+  provider: azure
+  secretObjects:                              # [OPTIONAL] SecretObjects defines the desired state of synced Kubernetes secret objects
+  - data:
+    - key: AZURESTORAGECONNECTIONSTRINGQR                           # data field to populate
+      objectName: AZURESTORAGECONNECTIONSTRINGQR                        # name of the mounted content to sync; this could be the object name or the object alias
+    secretName: azure-secret                     # name of the Kubernetes secret object
+    type: Opaque 
+  parameters:
+    usePodIdentity: "false"
+    useVMManagedIdentity: "true"          # Set to true for using managed identity
+    userAssignedIdentityID: "d761894a-4f5a-4a0b-a6f6-690785147ec1"   # Set the clientID of the user-assigned managed identity to use
+    keyvaultName: "akv-01-qr80335"
+    objects:  |
+      array:
+        - |
+          objectName: AZURESTORAGECONNECTIONSTRINGQR
+          objectType: secret 
+  
+    tenantId: "e66ab07b-78e6-489c-8ab5-f7376d0584ff"
+
+---
+#Services
+apiVersion: v1
+kind: Service
+metadata:
+  name: webui-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: webui
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: api
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 80
+---
+
 #Deployments
 
 apiVersion: apps/v1
@@ -69,54 +127,4 @@ spec:
             secretProviderClass: "azure-secret-sync"
 
 
-#Services
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: webui-service
-spec:
-  type: LoadBalancer
-  selector:
-    app: webui
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
 
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: api-service
-spec:
-  type: LoadBalancer
-  selector:
-    app: api
-  ports:
-    - protocol: TCP
-      port: 8000
-      targetPort: 80
-
-# ---
-
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: ingress-class
-#   annotations:
-#     nginx.ingress.kubernetes.io/rewrite-target: /
-# spec:
-#   ingressClassName: nginx
-#   rules:
-#   - host: "qrcode.ebamforesume.cloud"
-#     http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: webui-service
-#             port:
-#               number: 80
