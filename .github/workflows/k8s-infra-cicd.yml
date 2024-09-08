@@ -8,15 +8,14 @@ jobs:
     publish-k8s:
         runs-on: ubuntu-latest
         steps: 
+          - uses: actions/checkout@v4
           - name: Create kubeconfig
-            working-directory: ./k8s/
             run: |
               mkdir ${HOME}/.kube
               echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
               cat ${HOME}/.kube/config
 
           - name: Use context
-            working-directory: ./k8s/
             run: kubectl config use-context aks-cluster01
 
           - name: Deploy to K8s
