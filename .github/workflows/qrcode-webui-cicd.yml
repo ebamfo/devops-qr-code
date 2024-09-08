@@ -1,6 +1,7 @@
 name: Build Test and Deploy WebUI image
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - front-end-vuejs/**

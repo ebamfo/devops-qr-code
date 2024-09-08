@@ -1,6 +1,7 @@
 
 name: Deactivate AKS Cluster at 6PM UTC
 on:
+    workflow_dispatch:
     # Triggers the workflow everyday at 8AM
     schedule:
       - cron: "0 18 * * *"

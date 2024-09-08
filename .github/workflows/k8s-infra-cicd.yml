@@ -1,5 +1,6 @@
 name: Publish K8S manifests changes
 on:
+    workflow_dispatch:
     push:
       paths:
       - k8s/**
