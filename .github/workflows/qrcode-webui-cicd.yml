@@ -36,4 +36,4 @@ jobs:
         run: kubectl config use-context aks-cluster01
 
       - name: Deploy to Azure Kubernetes Service
-        run: kubectl set image deployment/webui-deployment qrcode-webui=eben98/qrcode-webui:latest
+        run: kubectl set image deployment/webui-deployment webui=eben98/qrcode-webui:latest
