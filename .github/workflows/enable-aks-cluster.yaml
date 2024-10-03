@@ -1,9 +1,9 @@
 name: Activate AKS Cluster at 8AM UTC
 on:
     workflow_dispatch:
-    # Triggers the workflow everyday at 7:50AM
+    # Triggers the workflow every weekday at 8:50AM
     schedule:
-      - cron: "50 7 * * *"
+      - cron: "50 8 * * 1-5"
 jobs:
     cron:
       runs-on: ubuntu-latest
