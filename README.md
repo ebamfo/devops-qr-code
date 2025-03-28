@@ -34,7 +34,7 @@ Microsoft Azure is used for the cloud deployments. Microsoft Azure tools used in
 **5. GitHub Actions**
 
 Five CI/CD Pipelines which carry out the following 4 main tasks;
-- Test and Deploy changes made to API
-- Deploy changes made to front end
-- Deploy changes made to kubernetes manifest files
-- Start the Azure Kubernetes Cluster at 7:50 AM UTC and Stopping at 6:00 PM UTC everyday
+- Test and Deploy changes made to API.
+- Deploy changes made to front end.
+- Deploy changes made to kubernetes manifest files.
+- Start the Azure Kubernetes Cluster at 7:50 AM UTC and Stopping at 6:00 PM UTC everyday.
