@@ -35,7 +35,7 @@
             },
         sendInput(){
             this.formatTime()
-            fetch(`http://api.qrcode.ebamforesume.cloud:8000?url=${this.textInput}&dateTime=${this.currentDateTime}`, {
+            fetch(`http://api.qrcode.ebamfobediako.com:8000?url=${this.textInput}&dateTime=${this.currentDateTime}`, {
                 method: 'GET',
                 headers: {
                     "accept": "application/json", 

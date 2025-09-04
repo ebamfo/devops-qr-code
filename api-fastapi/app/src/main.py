@@ -8,8 +8,8 @@ import os
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://qrcode.ebamforesume.cloud", "https://qrcode.ebamforesume.cloud",
-                   "http://www.qrcode.ebamforesume.cloud", "https://www.qrcode.ebamforesume.cloud"],
+    allow_origins=["http://qrcode.ebamfobediako.com", "https://qrcode.ebamfobediako.com",
+                   "http://www.qrcode.ebamfobediako.com", "https://www.qrcode.ebamfobediako.com"],
     allow_credentials=True,
     allow_methods=["GET"],  # Allows GET methods
     allow_headers=["*"],  # Allows all headers
